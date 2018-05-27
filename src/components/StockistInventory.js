@@ -1,5 +1,5 @@
 import React from 'react'
-import Good from '../components/Good.js'
+// import Good from '../components/Good.js'
 
 
 class StockistInvetory extends React.Component {

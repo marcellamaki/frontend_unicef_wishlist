@@ -1,51 +1,11 @@
 import React from 'react';
 
 class CategoryChecklist extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      food: 0,
-      drygoods: 0,
-      produce: 0,
-      clothing: 0,
-      women: 0,
-      men: 0,
-      children: 0,
-      homegoods: 0,
-      cookware: 0,
-      dishes: 0,
-      electronics: 0,
-      communication: 0,
-      hvac: 0,
-      media: 0,
-      tools: 0,
-      construction: 0,
-      handFarming: 0,
-      farmTools: 0,
-      distance: 5
-
-    };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
-
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-  }
-
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log('submitting')
     this.props.updateSurvey()
     this.props.fetchLocation()
-
   }
 
   render() {
@@ -57,8 +17,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="food"
           type="checkbox"
-          checked={this.state.food}
-          onChange={this.handleInputChange} />
+          checked={this.props.food}
+          onChange={this.props.handleInputChange} />
           FOOD
         </label>
         <br />
@@ -66,8 +26,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="drygoods"
           type="checkbox"
-          checked={this.state.drygoods}
-          onChange={this.handleInputChange} />
+          checked={this.props.drygoods}
+          onChange={this.props.handleInputChange} />
           Dry goods or Pantry Items
         </label>
         <br />
@@ -75,8 +35,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="produce"
           type="checkbox"
-          checked={this.state.produce}
-          onChange={this.handleInputChange} />
+          checked={this.props.produce}
+          onChange={this.props.handleInputChange} />
           Fresh Fruits or Vegetables
         </label>
         <br />
@@ -84,8 +44,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="clothing"
           type="checkbox"
-          checked={this.state.clothing}
-          onChange={this.handleInputChange} />
+          checked={this.props.clothing}
+          onChange={this.props.handleInputChange} />
           CLOTHING
         </label>
         <br />
@@ -93,8 +53,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="women"
           type="checkbox"
-          checked={this.state.women}
-          onChange={this.handleInputChange} />
+          checked={this.props.women}
+          onChange={this.props.handleInputChange} />
           Women
         </label>
         <br />
@@ -102,8 +62,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="men"
           type="checkbox"
-          checked={this.state.men}
-          onChange={this.handleInputChange} />
+          checked={this.props.men}
+          onChange={this.props.handleInputChange} />
           Men
         </label>
         <br />
@@ -111,8 +71,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="children"
           type="checkbox"
-          checked={this.state.children}
-          onChange={this.handleInputChange} />
+          checked={this.props.children}
+          onChange={this.props.handleInputChange} />
           Children
         </label>
         <br />
@@ -120,8 +80,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="homegoods"
           type="checkbox"
-          checked={this.state.homegoods}
-          onChange={this.handleInputChange} />
+          checked={this.props.homegoods}
+          onChange={this.props.handleInputChange} />
           HOME GOODS
         </label>
         <br />
@@ -129,8 +89,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="cookware"
           type="checkbox"
-          checked={this.state.cookware}
-          onChange={this.handleInputChange} />
+          checked={this.props.cookware}
+          onChange={this.props.handleInputChange} />
           Cookware, Pots and Pans
         </label>
         <br />
@@ -138,8 +98,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="dishes"
           type="checkbox"
-          checked={this.state.dishes}
-          onChange={this.handleInputChange} />
+          checked={this.props.dishes}
+          onChange={this.props.handleInputChange} />
           Dishes, Dinnerware, and Utensils
         </label>
         <br />
@@ -147,8 +107,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="electronics"
           type="checkbox"
-          checked={this.state.electronics}
-          onChange={this.handleInputChange} />
+          checked={this.props.electronics}
+          onChange={this.props.handleInputChange} />
           ELECTRONICS
         </label>
         <br />
@@ -156,8 +116,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="communication"
           type="checkbox"
-          checked={this.state.communication}
-          onChange={this.handleInputChange} />
+          checked={this.props.communication}
+          onChange={this.props.handleInputChange} />
           Computers, Cellular Phones
         </label>
         <br />
@@ -165,8 +125,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="hvac"
           type="checkbox"
-          checked={this.state.hvac}
-          onChange={this.handleInputChange} />
+          checked={this.props.hvac}
+          onChange={this.props.handleInputChange} />
           Heaters, Fans, Air Conditioners
         </label>
         <br />
@@ -174,8 +134,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="media"
           type="checkbox"
-          checked={this.state.media}
-          onChange={this.handleInputChange} />
+          checked={this.props.media}
+          onChange={this.props.handleInputChange} />
           Televisions, Radios, CD Players
         </label>
         <br />
@@ -183,8 +143,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="tools"
           type="checkbox"
-          checked={this.state.tools}
-          onChange={this.handleInputChange} />
+          checked={this.props.tools}
+          onChange={this.props.handleInputChange} />
           TOOLS, EQUIPMENT, AND FARMING SUPPLIES
         </label>
         <br />
@@ -192,8 +152,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="construction"
           type="checkbox"
-          checked={this.state.construction}
-          onChange={this.handleInputChange} />
+          checked={this.props.construction}
+          onChange={this.props.handleInputChange} />
           Construction Tools, Hammers, Saws, Drills
         </label>
         <br />
@@ -201,8 +161,8 @@ class CategoryChecklist extends React.Component {
         <input
           name="handFarming"
           type="checkbox"
-          checked={this.state.handFarming}
-          onChange={this.handleInputChange} />
+          checked={this.props.handFarming}
+          onChange={this.props.handleInputChange} />
           Hand Farming Tools, Shovels, Trowels, Hoes, Rakes, Hoses
         </label>
         <br />
@@ -210,15 +170,15 @@ class CategoryChecklist extends React.Component {
         <input
           name="farmTools"
           type="checkbox"
-          checked={this.state.farmTools}
-          onChange={this.handleInputChange} />
+          checked={this.props.farmTools}
+          onChange={this.props.handleInputChange} />
           Large Farming Equipment, Plows, Irrigation Systems, Seeders
         </label>
         <br />
         <br />
         <label>
         I am looking for goods within:
-        <select name="distance" value={this.state.value} onChange={this.handleChange}>
+        <select name="distance" value={this.props.value} onChange={this.props.handleInputChange}>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="25">25</option>

@@ -5,12 +5,43 @@ import CurrentStockBuyerView from '../components/CurrentStockBuyerView.js';
 
 
 class Dashboard  extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props);
     this.state = {
-      surveyCompleted: 0,
-      userLocation: []
-    }
+      food: false,
+      drygoods: false,
+      produce: false,
+      clothing: false,
+      women: false,
+      men: false,
+      children: false,
+      homegoods: false,
+      cookware: false,
+      dishes: false,
+      electronics: false,
+      communication: false,
+      hvac: false,
+      media: false,
+      tools: false,
+      construction: false,
+      handFarming: false,
+      farmTools: false,
+      distance: '5',
+      userLocation: [],
+      surveyCompleted: 0
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
   }
 
   updateSurvey = (event) => {
@@ -36,17 +67,19 @@ class Dashboard  extends Component {
         }
 
   render() {
-    console.log(this.state)
-    if (this.state.surveyCompleted) {
-    return (
-      <div>
-        <CurrentStockBuyerView location={this.state.userLocation} />
-      </ div>
-    )
+    if (!!this.state.userLocation) {
+      localStorage.setItem('location', JSON.stringify(this.state.userLocation))
+    }
+    if (this.state.surveyCompleted === 1) {
+      return (
+        <div>
+          <CurrentStockBuyerView distance={this.state.distance} props={this.state}/>
+        </ div>
+      )
   } else {
     return (
       <div>
-        <CategoryChecklist updateSurvey={this.updateSurvey} fetchLocation={this.fetchLocation}/>
+        <CategoryChecklist props={this.state} updateSurvey={this.updateSurvey} handleInputChange={this.handleInputChange} fetchLocation={this.fetchLocation}/>
       </ div>
     )
   }

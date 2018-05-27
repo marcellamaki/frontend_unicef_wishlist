@@ -3,13 +3,17 @@ import haversine from 'haversine'
 export function distanceCalculator(latitude, longitude) {
 
   const end = {
-  latitude: latitude,
-  longitude: longitude
+  latitude: parseInt(latitude, 10),
+  longitude: parseInt(longitude, 10)
   }
 
   const start = {
-    latitude: JSON.parse(localStorage.getItem('location')).lat,
-    longitude: JSON.parse(localStorage.getItem('location')).lng
+    latitude: parseInt(JSON.parse(localStorage.getItem('location')).lat, 10),
+    longitude: parseInt(JSON.parse(localStorage.getItem('location')).lng, 10)
   }
 
-  return(haversine(start, end, {unit: 'mile'}))
+  return(haversine(start, end, {unit: 'km'}))
+}
+
+
+export default distanceCalculator

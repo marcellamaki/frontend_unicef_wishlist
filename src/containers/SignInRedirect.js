@@ -2,11 +2,8 @@ import React from 'react'
 import LogIn from '../components/LogIn.js'
 
 class SignedInDashboard extends React.Component {
-
-	//need event listener for form submission
 	constructor() {
 		super()
-
 		this.state = {
 			name: '',
 			email: '',
@@ -14,13 +11,11 @@ class SignedInDashboard extends React.Component {
 			role: '',
 			loggedIn: 0
 		}
-
 	}
 
 	handleChange = (event) => {
 		const target = event.target.dataset.name
 		const value = event.target.value
-
 		this.setState({
 			[target]: value
 		})
@@ -35,8 +30,6 @@ class SignedInDashboard extends React.Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		console.log(this.state)
-
 		const data = {
 			name: this.state.name,
 			email: this.state.email,

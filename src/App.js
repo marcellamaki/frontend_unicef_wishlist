@@ -9,14 +9,6 @@ import LogIn from './components/LogIn.js';
 
 class App extends Component {
 
-  handleLogIn () {
-    console.log("handling login")
-  }
-
-  handleBrowse () {
-    console.log("handling browse")
-  }
-
   render() {
     return (
       <div className="container">
